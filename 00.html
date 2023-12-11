@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chinese-Hakka Dictionary</title>
+</head>
+<body>
+    <h1>問問神奇海螺</h1>
+    <input type="text" id="query" placeholder="問問神奇海螺">
+    <button onclick="search()">Search</button>
+    <p id="result"></p>
+
+    <script>
+        function search() {
+            var query = document.getElementById('query').value;
+            var url = 'https://script.google.com/macros/s/AKfycbyoeuEnVjsIc_WZCj1PBsHUmOukzHkvS01G4TY5CGS1veB8kZXWQnoO3hAzSkmYreG-/exec?q=' + encodeURIComponent(query);
+
+            fetch(url)
+                .then(response => response.text())
+                .then(text => document.getElementById('result').innerText = text)
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
+
